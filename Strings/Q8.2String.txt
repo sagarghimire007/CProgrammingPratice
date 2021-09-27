@@ -1,0 +1,49 @@
+/*
+Program to do following
+1. to output the question
+2. accept answer
+3. to print good then stop if the answer is correct
+4. else message try again
+5. display the correct answer when the answer is wrong even at third event and stop
+*/
+
+#include <stdio.h>
+#include<string.h>
+
+int main()
+{
+    char s[] = "Dennis Ritche";
+    char inventor[30];
+    printf("Who is the inventor of C ?");
+    gets(inventor);
+    if(checkAnswer(inventor,s) == 1)
+    {
+        printf("GOOD");
+    }
+    else
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            printf("Incorrect Answer !! Try again\n");
+            gets(inventor);
+            if(checkAnswer(inventor,s) == 1)
+            {
+                printf("GOOD");
+            }
+        }
+        printf("\nMaximum Limit Reached!! Answer is %s",s);
+    }
+    return 0;
+}
+
+int checkAnswer(char inventor[],char s[])
+{
+    if(strcmp(inventor,s) == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}

@@ -1,0 +1,145 @@
+/*
+pattern 1
+   0
+  101
+ 21012
+3210123
+
+pattern 2
+   1
+  123
+ 12345
+1234567
+
+pattern 3
+   *
+  ***
+ *****
+*******
+
+*/
+
+#include<stdio.h>
+void pattern_1(int n);
+void pattern_2(int n);
+void pattern_3(int n);
+
+int main()
+{
+    int n;
+    printf("enter number of rows to print out pattern : ");
+    scanf("%d",&n);
+    pattern_1(n);
+    pattern_2(n);
+    pattern_3(n);
+    pattern_4(n);
+    return 0;
+}
+//pattern 1
+void pattern_1(int n)
+{
+    int z = 1;
+    printf("Pattern 1\n\n");
+    for(int i = 1 ; i <= n; i++)// for outer loop
+    {
+        for(int j = n-1; j >= i; j--)//for space loop
+        {
+            printf(" ");
+        }
+        for(int k = 1; k <= z; k++)
+        {
+            printf("%d",abs(k-i));
+        }
+        z += 2;
+        printf("\n");
+    }
+    printf("\n");
+
+    printf("Pattern 2\n\n");
+    //using another logic
+    for(int i = 0 ; i <= n-1; i++)// for outer loop
+    {
+        for(int j = n-1; j >= i; j--)//for space loop
+        {
+            printf(" ");
+        }
+        for(int k = 1; k <= (i*2)+1; k++)
+        {
+            printf("%d",k);
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+}
+
+//pattern 2
+void pattern_2(int n)
+{
+    int z = 1;
+    printf("Pattern 3\n\n");
+    for(int i = 1 ; i <= n; i++)// for outer loop
+    {
+        for(int j = n-1; j >= i; j--)//for space loop
+        {
+            printf(" ");
+        }
+        for(int k = 1; k <= z; k++)
+        {
+            printf("*");
+        }
+        z += 2;
+        printf("\n");
+    }
+    printf("\n");
+
+}
+
+void pattern_3(int n)
+{
+    printf("Pattern 4\n\n");
+    for(int i = n; i >= 1; i--)
+    {
+        for(int space = 1; space <= (n-i); space++)
+        {
+            printf(" ");
+        }
+        for(int j = 1; j <= 2*i-1; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void pattern_4(int n)
+{
+    printf("Pattern 5\n\n");
+    int z = 1;
+    for(int i = 1 ; i <= n; i++)// for outer loop
+    {
+        for(int j = n-1; j >= i; j--)//for space loop
+        {
+            printf(" ");
+        }
+        for(int k = 1; k <= z; k++)
+        {
+            printf("*");
+        }
+        z += 2;
+        printf("\n");
+    }
+    for(int i = n-1; i >= 1; i--)
+    {
+        for(int space = 1; space <= (n-i); space++)
+        {
+            printf(" ");
+        }
+        for(int j = 1; j <= 2*i-1; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}

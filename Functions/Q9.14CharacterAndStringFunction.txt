@@ -1,0 +1,50 @@
+/*
+invokes a find() perform following tasks
+1. receives a character array and a single character
+2. returns 1 if the specified character is found in the array, 0 othewise
+*/
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+int isCharacter(char str[],char a);
+void find();
+
+
+int main()
+{
+    find();
+    return 0;
+}
+
+void find()
+{
+    char a;
+    char str[30];
+    printf("Enter a string : ");
+    gets(str);
+    printf("Enter a single character : ");
+    scanf("%c",&a);
+    if(isCharacter(str,a))
+    {
+        printf("Character found in String array");
+    }
+    else
+    {
+        printf("Character not found in String array");
+    }
+}
+
+int isCharacter(char str[],char a)
+{
+    if(strchr(str,a))
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+

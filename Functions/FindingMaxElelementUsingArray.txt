@@ -1,0 +1,40 @@
+// finding largest element in an array using function as passing array as parameter
+
+#include<stdio.h>
+
+int max = 0;//global declaration
+
+int main()
+{
+    int n;
+    printf("enter the size of an array : ");
+    scanf("%d",&n);
+    int a[n];
+    printf("largest value is %d",array_data(a,n));
+    return 0;
+}
+
+int array_data(int b[],int n)
+{
+    printf("\nEnter the elements of %d datas : \n",n);
+    for(int i = 0 ; i < n; i++)
+    {
+        printf("b[%d] = ",i);
+        scanf("%d",&b[i]);
+    }
+    max = find_largest(b,n);
+    return max;
+}
+
+int find_largest(int a[],int n)
+{
+    for(int i = 0; i < n; i++)
+    {
+        if(a[i] > max)
+        {
+            max = a[i];
+        }
+    }
+    return max;
+    //printf("Max element is %d",max);
+}

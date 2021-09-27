@@ -1,0 +1,22 @@
+/*using getchar() function the repeated character is read from a terminal and is stored in character array
+- it does not take any of parameter. when ever a new line is encounted the program gets out of the loop given below
+*/
+
+#include<stdio.h>
+
+int main()
+{
+    char line[80],character;
+    int c = 0;
+    do
+    {
+        character = getchar();
+        line[c] = character;//stores character in a sequence of array 
+        printf("%d",c);
+        c++;
+    }while(character != '\n');//when a new line is encountered the program comes out of a loop
+    c -= 1;
+    line[c] = '\0';//assign a null character
+    printf("test = %s\n",line);
+    return 0;
+}

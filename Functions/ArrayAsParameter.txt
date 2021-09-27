@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int age[10];
+    get_info(age,10);
+    return 0;
+}
+
+void get_info(int a[],int n)
+{
+    int count = 0;
+    printf("Enter the age of person : \n");
+    for(int i = 0; i < n; i++)
+    {
+        printf("Person%d = ",i+1);
+        scanf("%d",&a[i]);
+        if(a[i] >= 50 && a[i] <= 60)
+        {
+            count++;
+        }
+    }
+    printf("Number of person in age group between 50 to 60 = %d",count);
+}

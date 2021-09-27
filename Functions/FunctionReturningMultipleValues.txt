@@ -1,0 +1,18 @@
+//function that return multiple values with the help of ampersand and indirection sign
+
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int x = 20,y = 10, s,d;
+    mathoperation(x,y,&s,&d);// here the value of x and y are passed as an arugument with thier values whereas in case of s and d address is passed to the called function
+    printf("s = %d\nd = %d",s,d);
+    return 0;
+}
+
+void mathoperation(int a,int b,int *sum,int *diff)// * referes to reference of address of s and d (also called indirection)
+{
+    *sum = a+b;
+    *diff = a-b;
+}

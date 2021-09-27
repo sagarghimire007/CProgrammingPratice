@@ -1,0 +1,86 @@
+// check whether number is palindrome or not
+
+#include<stdio.h>
+
+int check_palindrome(int input);
+int checkPalindromeUsingReverseAndCheckEqual(int input);
+void checkPalindromeAndOutputResultInConsoleUsingExistingMethod(int input);
+int reverse(int input);
+int checkEqual(int x, int y);
+
+int main()
+{
+    int n,a;
+    printf("Enter the number to to check whether its palindrome or not : ");
+    scanf("%d",&n);
+    //checkPalindromeAndOutputResultInConsole(n);
+    checkPalindromeAndOutputResultInConsoleUsingExistingMethod(n);
+    return 0;
+}
+
+int check_palindrome(int input)
+{
+    int n = input,reverse = 0,remainder;
+    while(n != 0)
+    {
+        remainder = n%10;
+        reverse = reverse * 10 + remainder;
+        n = n/10;
+    }
+    return(input == reverse);
+}
+
+int checkPalindromeUsingReverseAndCheckEqual(int input)
+{
+    return checkEqual(input, reverse(input));
+}
+
+void checkPalindromeAndOutputResultInConsole(int input)
+{
+    int n = input, reverse = 0, remainder;
+    while(n != 0)
+    {
+        remainder = n%10;
+        reverse = reverse * 10 + remainder;
+        n = n/10;
+    }
+    if(input == reverse)
+    {
+       printf("The number %d is palindrome", input);
+    }
+    else
+    {
+        printf("The number %d is not palindrome", input);
+    }
+}
+
+void checkPalindromeAndOutputResultInConsoleUsingExistingMethod(int input)
+{
+    //if(check_palindrome(input))
+        // or
+    if(checkPalindromeUsingReverseAndCheckEqual(input))
+    {
+       printf("The number %d is palindrome", input);
+    }
+    else
+    {
+        printf("The number %d is not palindrome", input);
+    }
+}
+
+int reverse(int input)
+{
+    int n = input,reverse = 0,remainder;
+    while(n != 0)
+    {
+        remainder = n%10;
+        reverse = reverse * 10 + remainder;
+        n = n/10;
+    }
+    return reverse;
+}
+
+int checkEqual(int x, int y)
+{
+    return(x == y);
+}

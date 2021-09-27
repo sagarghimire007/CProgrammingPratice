@@ -1,0 +1,40 @@
+//Nesting Function
+
+#include<stdio.h>
+#include<math.h>
+
+float ratio(int x,int y,int z);
+int difference(int y, int z);
+
+int main()
+{
+    int a,b,c;
+    printf("Enter the value of a,b,c : ");
+    scanf("%d%d%d",&a,&b,&c);
+    printf("%.3f",ratio(a,b,c)); // calls a ratio function
+    return 0;
+}
+
+float ratio(int x,int y,int z)
+{
+    if(difference(y,z))// calls difference function
+    {
+        return (x/(y-z));
+    }
+    else
+    {
+        return 0.0;
+    }
+}
+
+int difference(int y, int z)
+{
+    if(y != z)//if value becomes same returns 0
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}

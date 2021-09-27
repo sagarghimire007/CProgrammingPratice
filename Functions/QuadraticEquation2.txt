@@ -1,0 +1,68 @@
+/*quadratic equation has two roots having following formula
+x = -b - sqrt(b*b - 4*a*c)/(2.0 * a);
+x = -b + sqrt(b*b - 4*a*c)/(2.0 * a);
+
+case when
+1. No solution when both and b are zero
+2. There is only one root,if a = 0 (-c/b)
+3. There are no real roots if b^2 - 4ac is negative
+4. other wise there are two real roots.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+
+float descriminant;//global declaration
+
+
+// calculate descriminant and return its value
+float calculate_descriminant(float a,float b, float c)
+{
+    descriminant = (b*b - 4*a*c);
+    return descriminant;
+    //otherwise mathi ko line skip garera yo return garna pani milxa return (b*b - 4*a*c);
+}
+
+//calculating roots
+void calculate_roots(float a,float b,float c)
+{
+    float root1,root2;
+    descriminant = calculate_descriminant(a,b,c);
+    printf("descriminant = %.3f\n",descriminant);
+
+    //roots are imaginary when b*b - 4*a*c is less than zero
+    if(descriminant < 0)
+    {
+        printf("Roots are Imaginary");
+    }
+    else if(descriminant == 0)
+    {
+        printf("No solution, where a and b are zero\n");
+    }
+    else if(a == 0)
+    {
+        root1 = (-c/b);
+        printf("There is only 1 root,root1 = %.3f\n\n",root1);
+    }
+    //other wise give two roots
+    else
+    {
+        root1 = (-b - sqrt(descriminant))/(2.0*a);
+        root2 = (-b + sqrt(descriminant))/(2.0*a);
+        printf("Root1 = %.3f and Root2 = %.3f",root1,root2);
+    }
+}
+
+int main()
+{
+    float a,b,c;
+    printf("Enter the value of a b and c : ");
+    scanf("%f%f%f",&a,&b,&c);
+    printf("a = %.2f b = %.2f and c = %.2f\n",a,b,c);
+    calculate_roots(a,b,c);
+    return 0;
+}
+
+
+

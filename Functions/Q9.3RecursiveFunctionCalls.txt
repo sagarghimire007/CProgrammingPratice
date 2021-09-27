@@ -1,0 +1,47 @@
+/* program to print the sum of euation
+    f(x) = x - x^3/3! + x^5/5! - x^7/7! + ... -x^n/n!;
+ */
+
+#include <stdio.h>
+#include <math.h>
+
+float sequence_exec(int x,int n);
+
+int main()
+{
+    int x,n;
+    printf("Enter the nth term to print the sum of series : ");
+    scanf("%d",&n);
+    printf("Enter the value of x : ");
+    scanf("%d",&x);
+    printf("Sum is %.3f",sequence_exec(x,n));
+    return 0;
+}
+
+float sequence_exec(int x,int n)
+{
+    int sign = 1,a = 1;
+    float sum = 0;
+    for(int i = 0; i < n; i++)
+    {
+        sum = sum + ((sign)*pow(x,a))/(cal_factorial(a)); // gets factorial of given number;
+        a += 2; //increment by 2 to get a factorial as required
+        sign *= -1; // to change a sign for calculating above expression
+    }
+    return sum;
+}
+
+// calclate factorial of given number using recursive function and returns fact;
+int cal_factorial(int n)
+{
+    int fact;
+    if(n == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        fact = n * cal_factorial(n-1);
+    }
+    return fact;
+}

@@ -1,0 +1,77 @@
+// printing Solid and Hollow Square
+
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#include<string.h>
+int main()
+{
+    /*
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+            printf(" S " );
+        }
+        printf("\n");
+    }
+    printf("\n");
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+            if(i==0 || i==4)
+            {
+                printf(" S ");
+            }
+            else if(j==0|| j==4)
+            {
+                printf(" S       ");
+            }
+            else
+            printf(" ");
+        }
+        printf("\n");
+    }
+    return 0;
+    */
+    print_solid_square(4,'S');
+    print_hollow_square(6,'A');
+    return 0;
+
+}
+
+// for solid square
+void print_solid_square(int n,char c)
+{
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0 ; j<n; j++)
+        {
+            printf(" %c ",c);
+        }
+        printf("\n");
+    }
+}
+
+// for hollow square
+void print_hollow_square(int n,char c)
+{
+    for(int i=0; i<n;  i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            if(i == 0 || i == n-1)
+            {
+                printf(" %c ",c);
+            }
+            else if(j == 0 || j == n-1)
+            {
+                printf(" %c ",c);
+            }
+            else
+            printf("   ");
+        }
+        printf("\n");
+    }
+}

@@ -1,0 +1,30 @@
+
+/*
+finding out vowels and constants in a string
+*/
+
+#include<stdio.h>
+
+int main()
+{
+    char str1[20];
+    int count_vowels = 0,count_constants = 0;
+    printf("Enter the string : ");
+    gets(str1);//terminates when new line is encountered and appends null character at the end of character
+    //scanf("%s",str1);// when using scanf function, black space when encountered terminates string after that
+    for(int i = 0; str1[i] != 0; i++)
+    {
+        if(str1[i] == 'a' || str1[i] == 'A' || str1[i] == 'e' || str1[i] == 'E' || str1[i] == 'i' || str1[i] == 'I'
+           || str1[i] == 'o' || str1[i] == 'O' || str1[i] == 'u' || str1[i] == 'U')
+        {
+            count_vowels++;
+        }
+        else
+        {
+            count_constants++;
+        }
+    }
+    printf("Number of vowels are %d\n",count_vowels);
+    printf("Number of vowels are %d\n",count_constants);
+    return 0;
+}

@@ -1,0 +1,89 @@
+/*Printing floyds triangle pattern
+eg:1
+1
+0 1
+1 0 1
+0 1 0 1
+
+eg:2
+0
+1 0
+0 1 0
+1 0 1 0
+
+eg:3
+1
+2 3
+4 5 6
+7 8 9 10
+*/
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+    int n;
+    printf("enter the number of rows to print floyd's pattern : ");
+    scanf("%d",&n);
+    floyds_triangle1(n);
+    printf("\n");
+    floyds_triangle2(n);
+    printf("\n");
+    floyds_triangle3(n);
+    return 0;
+}
+
+// floyd's triangle 1
+void floyds_triangle1(int n)
+{
+    for(int i = 0 ; i<= n; i++)
+    {
+        for(int j = 1; j <= i; j++)
+        {
+            if((i+j)%2 == 0)
+            {
+                printf(" 1 ");
+            }
+            else
+            {
+                printf(" 0 ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+// floyd's triangle 2
+void floyds_triangle2(int n)
+{
+    for(int i = 0 ; i<= n; i++)
+    {
+        for(int j = 1; j <= i; j++)
+        {
+            if((i+j)%2 == 0)
+            {
+                printf(" 0 ");
+            }
+            else
+            {
+                printf(" 1 ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//floyd's triangle 3
+void floyds_triangle3(int n)
+{
+    int a = 0;
+    for(int i = 1 ; i <= n; i++)
+    {
+        for(int j = 1 ; j <= i; j++)
+        {
+           printf(" %d ",++a);
+        }
+        printf("\n");
+    }
+}

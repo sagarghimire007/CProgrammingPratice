@@ -1,0 +1,150 @@
+#include<stdio.h>
+
+void readMatrix();
+void displayMatrix(int a[], int b[],int n,int m);
+void sortingMatrix1(int a[],int n);
+void sortingMatrix2(int b[],int m);
+void mergeSortedMatrix(int a[],int b[],int m,int n);
+void sortMergedMatrix(int c[],int n);
+
+int main()
+{
+    readMatrix();
+    return 0;
+}
+
+void readMatrix()
+{
+    int n,m;
+    printf("Enter the size of first matrix : ");
+    scanf("%d",&n);
+    int a[n];
+    for(int i = 0; i < n; i++)
+    {
+        printf("a[%d] : ",i);
+        scanf("%d",&a[i]);
+    }
+    printf("\n");
+    printf("Enter the size of second matrix : ");
+    scanf("%d",&m);
+    int b[n];
+    for(int i = 0; i < m; i++)
+    {
+        printf("b[%d] : ",i);
+        scanf("%d",&b[i]);
+    }
+    printf("\n");
+    displayMatrix(a,b,n,m);
+    sortingMatrix1(a,n);
+    sortingMatrix2(b,m);
+    mergeSortedMatrix(a,b,n,m);
+}
+
+void displayMatrix(int a[], int b[],int n,int m)
+{
+    printf("Matrix Before Sorting : \n");
+    printf("Matrix 1 : ");
+    for(int i = 0; i < n; i++)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\nMatrix 2 : ");
+    for(int i = 0; i < m; i++)
+    {
+        printf("%d ",b[i]);
+    }
+    printf("\n\n");
+}
+
+void sortingMatrix1(int a[],int n)
+{
+    int max1 = a[0];
+    printf("Sorting Matrix 1 in Ascending : ");
+    for(int i = 0; i < n-1; i++)
+    {
+        for(int j = 0; j < n-1; j++)
+        {
+            if(a[j] > a[j+1])
+            {
+                max1 = a[j];
+                a[j] = a[j+1];
+                a[j+1] = max1;
+            }
+        }
+    }
+    for(int i = 0; i < n; i++)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\n");
+}
+
+void sortingMatrix2(int b[],int m)
+{
+    int max2 = b[0];
+    printf("Sorting Matrix 2 in Ascending : ");
+    for(int i = 0; i < m-1; i++)
+    {
+        for(int j = 0; j < m-1; j++)
+        {
+            if(b[j] > b[j+1])
+            {
+                max2 = b[j];
+                b[j] = b[j+1];
+                b[j+1] = max2;
+            }
+        }
+    }
+    for(int i = 0; i < m; i++)
+    {
+        printf("%d ",b[i]);
+    }
+}
+
+void mergeSortedMatrix(int a[],int b[],int m,int n)
+{
+    int c[m*n],index = 0;
+    for(int i = 0; i < n; i++)
+    {
+        c[index] = a[i];
+        index++;
+    }
+    for(int i = 0; i < m; i++)
+    {
+        c[index] = b[i];
+        index++;
+    }
+    printf("\n\nMerged matrix : ");
+    for(int i = 0; i < m+n; i++)
+    {
+        printf("%d ",c[i]);
+    }
+    sortMergedMatrix(c,m+n);
+}
+
+void sortMergedMatrix(int c[],int n)
+{
+    int max = c[0];
+    printf("\nSorted Merged Matrix : ");
+    for(int i = 0; i < n-1; i++)
+    {
+        for(int j = 0; j < n-1; j++)
+        {
+            if(c[j] > c[j+1])
+            {
+                max = c[j];
+                c[j] = c[j+1];
+                c[j+1] = max;
+            }
+        }
+    }
+    for(int i = 0; i < n; i++)
+    {
+        printf("%d ",c[i]);
+    }
+    printf("\n");
+}
+
+
+
+

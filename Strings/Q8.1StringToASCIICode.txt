@@ -1,0 +1,19 @@
+/*
+read name and output a list of ASCII Codes
+*/
+
+#include <stdio.h>
+#include<string.h>
+
+int main()
+{
+    char s[10];
+    gets(s);
+    int l = strlen(s);
+    printf("Output a list of ASCII code :");
+    for(int i = 0; i < l; i++)
+    {
+        printf("%d ",s[i]);
+    }
+    return 0;
+}

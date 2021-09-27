@@ -1,0 +1,133 @@
+/*Program to print the largest and smallest from given numbers*/
+
+#include<stdio.h>
+
+void largest(int num1,int num2,int num3);//to calculate largest number
+void smallest(int num1,int num2,int num3);//to calcualte smallest number
+
+//start of main function
+int main()
+{
+	int num1,num2,num3,n,i;
+	printf("Select one of if to calculate largest and smallest number\n1. If else if else statement"
+			"\n2. While loop\n3. Do-While loop\n4. Switch Statememt\n");
+	scanf("%d",&i);
+	switch(i)
+	{
+		case 1:
+			{				
+				printf("Enter the value of num1,num2 and num3 : \n");
+				scanf("%d%d%d",&num1,&num2,&num3);
+				printf("Entered Numbers are %d %d %d\n",num1,num2,num3);
+				printf("\n");
+				largest(num1,num2,num3);
+				smallest(num1,num2,num3);
+				break;
+			}
+		case 2:
+			{
+				int a = 1;
+				printf("Enter the number of program repetition : ");
+				scanf("%d",&n);
+				while(a <= n)
+				{
+					printf("\nProcess %d\n",a);
+					printf("Enter the value of num1,num2 and num3 : \n");
+					scanf("%d%d%d",&num1,&num2,&num3);
+					printf("Entered Numbers are %d %d %d\n",num1,num2,num3);
+					largest(num1,num2,num3);
+					smallest(num1,num2,num3);
+					a++;					
+				}				
+			}
+		case 3:
+			{
+				int a = 1;
+				printf("Enter the number of program repetition : ");
+				scanf("%d",&n);
+				do
+				{
+					printf("\nProcess %d\n",a);
+					printf("Enter the value of num1,num2 and num3 : \n");
+					scanf("%d%d%d",&num1,&num2,&num3);
+					printf("Entered Numbers are %d %d %d\n",num1,num2,num3);
+					largest(num1,num2,num3);
+					smallest(num1,num2,num3);
+					a++;					
+				}while(a <= n);
+			}
+		case 4:
+			{
+				int x;
+				printf("\nSelect which one to calculate\n1. Largest Number\n2. Smallest Number\n");
+				scanf("%d",&x);
+				switch(x)
+				{
+					case 1:
+						{
+							printf("Enter the value of num1,num2 and num3 : \n");
+							scanf("%d%d%d",&num1,&num2,&num3);
+							printf("Entered Numbers are %d %d %d\n",num1,num2,num3);
+							largest(num1,num2,num3);
+							break;
+						}
+					case 2:
+						{
+							printf("Enter the value of num1,num2 and num3 : \n");
+							scanf("%d%d%d",&num1,&num2,&num3);
+							printf("Entered Numbers are %d %d %d\n",num1,num2,num3);
+							smallest(num1,num2,num3);
+							break;
+						}
+					default:
+						{
+							printf("Please Try Again... Thank You\n");
+							break;
+						}					
+				}
+				break;
+			}
+		default :
+			{
+				printf("Invalid Selection... Please Try Again :) :)\n");
+			}
+	}
+	return 0;
+}
+// end of main function
+
+// for largest number to calculate
+void largest(int num1,int num2,int num3)
+{
+	if(num1 > num2 && num1 > num3)
+	{
+		printf("%d is largest\n",num1);
+	}
+	else if(num2 > num1 && num2 > num3)
+	{
+		printf("%d is largest\n",num2);
+	}
+	else
+	{
+		printf("%d is largest\n",num3);
+	}
+	return;
+}
+
+// for smallest to calculate
+void smallest(int num1,int num2,int num3)
+{
+	if(num1 < num2 && num1 < num3)
+	{
+		printf("%d is smallest\n",num1);
+	}
+	else if(num2 < num1 && num2 < num3)
+	{
+		printf("%d is smallest\n",num2);
+	}	
+	else
+	{
+		printf("%d is smallest\n",num3);
+	}
+	return;
+}

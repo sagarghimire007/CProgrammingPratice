@@ -1,0 +1,87 @@
+#include<stdio.h>
+
+void area();//function declaration
+void volume();
+
+int main()
+{
+    int x;
+    printf("Calculating area with help of loops\n");
+    printf("Select one :\n1. While Loop\n2. Do While Loop\n3. For Loop\n");
+    scanf("%d",&x);
+    switch(x)
+    {
+    case 1:
+        {
+            while_loop();//calling function to calculate the area
+            break;
+        }
+    case 2:
+        {
+            do_while_loop();//calling function to calculate the volume
+            break;
+        }
+    case 3:
+        {
+            for_loop();//calling function to calculate the volume
+            break;
+        }
+    default:
+        {
+            printf("Invalid Selection\n");
+            break;
+        }
+    }
+    return 0;
+}
+// while loop
+void while_loop()
+{
+
+    int l,b,n;
+    int i = 1;
+    printf("Enter the number you want to repeat your program (while loop) : ");
+    scanf("%d",&n);
+    while(i <= n)
+    {
+        printf("Process %d\n",i);
+        printf("Enter the length and breadth : ");
+        scanf("%d%d",&l,&b);
+        printf("Area = %d\n",l*b);
+        printf("\n");
+        i++;
+    }
+}
+// do while loop
+void do_while_loop()
+{
+    int l,b,n;
+    int i = 1;
+    printf("Enter the number you want to repeat your program (do while loop) : ");
+    scanf("%d",&n);
+    do
+    {
+        printf("Process %d\n",i);
+        printf("Enter the length and breadth : ");
+        scanf("%d%d",&l,&b);
+        printf("Area = %d\n",l*b);
+        printf("\n");
+        i++;
+    }while(i <= n);
+}
+
+//for loop
+void for_loop()
+{
+    int l,b,n;
+    printf("Enter the number you want to repeat your program (for loop) : ");
+    scanf("%d",&n);
+    for(int i = 1; i <= n; i++)
+    {
+        printf("Process %d\n",i);
+        printf("Enter the length and breadth : ");
+        scanf("%d%d",&l,&b);
+        printf("Area = %d\n",l*b);
+        printf("\n");
+    }
+}

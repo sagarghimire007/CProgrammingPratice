@@ -1,0 +1,58 @@
+// numeric value into words from tens to lakhs only
+
+#include<stdio.h>
+
+int main()
+{
+    long n,one,one_mod,ten,ten_mod,one_hund,one_hund_mod,one_thou,one_thou_mod,one_lakh,one_lakh_mod,ten_thou,ten_thou_mod;
+    char ones[20][30] = {"zero","one","two","three","four","five","six","seven","eight","nine",
+                    "ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
+
+    char tens[8][30] = {"twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
+    printf("enter a number : ");
+    scanf("%d",&n);
+    if(n >= 0 && n <=19)
+    {
+        printf("Number you have entered is :\n%s ",ones[n]);
+    }
+    else if(n >= 20 && n <= 99)
+    {
+        ten = n/10;
+        one = n % 10;
+        printf("Number you entered is :\n%s %s",tens[ten-2],ones[one]);
+    }
+    else if(n >= 100 && n <= 999)
+    {
+        one_hund = n / 100;
+        one_hund_mod = n % 100;
+        ten = one_hund_mod / 10;
+        one = ten % 10;
+        printf("Number you entered is : \n%s hundred %s %s",ones[one_hund],tens[ten-2],ones[one]);
+    }
+    else if(n >= 1000 && n <= 9999)
+    {
+        one_thou = n / 1000;
+        one_thou_mod = n % 1000;
+        one_hund = one_thou_mod / 100;
+        one_hund_mod = one_thou_mod % 100;
+        ten = one_hund_mod / 10;
+        one = ten % 10;
+        printf("Number you entered is : \n%s thousand %s hundred %s %s",ones[one_thou],ones[one_hund],tens[ten-2],ones[one]);
+    }
+    else if(n >= 10000 && n <= 999999)
+    {
+        one_lakh = n / 100000;
+        one_lakh_mod = n % 100000;
+        ten_thou = one_lakh_mod / 10000;
+        ten_thou_mod = one_lakh_mod % 10000;
+        one_thou = ten_thou_mod /1000;
+        one_thou_mod = ten_thou_mod % 1000;
+        one_hund = one_thou_mod / 100;
+        one_hund_mod = one_thou_mod % 100;
+        ten = one_hund_mod / 10;
+        one = ten % 10;
+        printf("Number you entered is : \n%s lakh %s %s thousand %s hundred %s %s",
+               ones[one_lakh],tens[ten_thou-2],ones[one_thou],ones[one_hund],tens[ten-2],ones[one]);
+    }
+    return 0;
+}

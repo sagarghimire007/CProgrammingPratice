@@ -1,0 +1,23 @@
+/*checking whether a given string is palindrome or not*/
+#include<stdio.h>
+
+int main()
+{
+    char str[30];
+    int length,right,i,j;
+    gets(str);
+    length = strlen(str);
+    right = length - 1;
+    for( i = 0, j = right; i <= j; i++, j--)
+    {
+        if(str[i] == str[j])
+        ;
+        else
+        {
+            printf("String is not palindrome\n");
+            return 0;
+        }
+    }
+    printf("String is palindrome\n");
+    return 0;
+}

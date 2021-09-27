@@ -1,0 +1,43 @@
+/*
+Bitwise operator using function
+requirements : n = 5, k = 4
+s = {1,2,3,4,5} 1 <= n
+for eg. calculation sample for and operator:
+    1&2,1&3,1&4,1&5,2&3,2&4,2&5,3&4,3&5,4&5 and same case for or and xor
+    - find out maximum of and,or and xor where the output is less than k;
+*/
+
+#include<stdio.h>
+
+int main()
+{
+    int n,k;
+    printf("enter the value of n and k :");
+    scanf("%d%d",&n,&k);
+    calculate_maximum(n,k);
+    return 0;
+}
+
+void calculate_maximum(int n, int k)
+{
+    int maxAnd = 0,maxOr = 0,maxXor = 0;
+    for(int i = 1; i <= n; i++)
+    {
+        for(int j = i+1; j <= n; j++)
+        {
+            if (((i&j) > maxAnd) && ((i&j) < k))//check whether i&j greater than max and less than k;
+            {
+                maxAnd = i&j;// and bitwise operator
+            }
+            if (((i|j) > maxOr) && ((i|j) < k))
+            {
+                maxOr = i|j; // or bitwise operator
+            }
+            if (((i^j) > maxXor) && ((i^j) < k))
+            {
+                maxXor = i^j; // xor bitwise operator
+            }
+        }
+    }
+    printf("%d\n%d\n%d\n", maxAnd, maxOr, maxXor);
+}

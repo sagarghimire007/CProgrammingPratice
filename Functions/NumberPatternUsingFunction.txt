@@ -1,0 +1,78 @@
+/*printing pattern
+5 6 7 8
+6 7 8
+7 8
+8
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+
+int cal_first(int n)
+{
+    int f;
+    while (n != 0)
+    {
+        f = n%10;
+        n = n/10;
+    }
+    return f;
+}
+
+void display_pattern(int a, int b)// passing first and last number of given number
+{
+    for(int i = a; i <= b; i++) // range starts from first and increments upto end
+    {
+        for(int j = i; j <= b; j++)
+        {
+            printf(" %d ",j);
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    int n,last_number,first_number;
+    printf("enter the integer number in sequence : "); // 12345 or 45678 or 345678 in a sequence manner
+    scanf("%d",&n);
+    last_number = n%10; //gives last number of given number
+    first_number = cal_first(n);
+    display_pattern(first_number,last_number);
+    
+   /*
+    for(int i = 1; i<5; i++)
+    {
+        for(int j = 4+i; j <= 8; j++)
+        {
+            printf(" %d ",j);
+        }
+        printf("\n");
+    }
+
+    printf("\n");
+    for(int i = 5; i<=8; i++)
+    {
+        for(int j = i; j <= 8; j++)
+        {
+            printf(" %d ",j);
+        }
+        printf("\n");
+    }
+
+    printf("\n");
+    for(int i = 0; i<4; i++)
+    {
+        for(int j = 5+i; j <= 8; j++)
+        {
+            printf(" %d ",j);
+        }
+        printf("\n");
+    }
+    */
+    return 0;
+}
+
+
+

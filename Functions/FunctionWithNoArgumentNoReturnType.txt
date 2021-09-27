@@ -1,0 +1,46 @@
+#include<stdio.h>
+
+void area();//function declaration
+void volume();
+
+int main()
+{
+    int x;
+    printf("Select one :\n1. Area\n2. Volume\n");
+    scanf("%d",&x);
+    switch(x)
+    {
+    case 1:
+        {
+            area();//calling function to calculate the area
+            break;
+        }
+    case 2:
+        {
+            volume();//calling function to calculate the volume
+            break;
+        }
+    default:
+        {
+            printf("Invalid Selection\n");
+            break;
+        }
+    }
+    return 0;
+}
+
+void area()
+{
+    int a,l,b;
+    printf("Enter the length and breadth : ");
+    scanf("%d%d",&l,&b);
+    printf("Area = %d",l*b);
+}
+
+void volume()
+{
+    int l,b,h;
+    printf("Enter the length, breadth and height : ");
+    scanf("%d%d%d",&l,&b,&h);
+    printf("Volume = %d",l*b*h);
+}

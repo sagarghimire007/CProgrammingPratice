@@ -1,0 +1,31 @@
+
+/*
+(-) sign specifies the string to be printed left justified
+- when the value on the right side of the decimal point specified the number of characters to be printed
+- when the width size is less than of character in string than the character is printed
+- when the number of character to be printed is specified as 0 nothing is printed
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    char str[100],character;
+    int d,i = 0,length;
+    printf("Enter the string : ");
+    gets(str);
+    length = strlen(str);
+    printf("length =  %d\n",length);
+    for(int j = 0; j < length; j++)
+    {
+        d = j + 1;
+        printf("%-12.*s\n",d,str);//- sign  justifies left width and d represents the characters to be printed
+    }
+    for(int j = length; j>= 0; j--)
+    {
+        d = j;
+        printf("%-12.*s\n",d,str);
+    }
+    return 0;
+}

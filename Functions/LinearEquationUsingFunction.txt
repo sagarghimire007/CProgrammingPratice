@@ -1,0 +1,51 @@
+/*calculate the value of x1 and x2
+x1 = (m*d-b*n)/(a*d-c*b)
+x2 = (n*a - m*c)/(a*d - c*b)
+*/
+
+#include<stdio.h>
+#include<string.h>
+
+float denominator;//global declaration
+
+// calculate denominator
+float cal_denominator(float a, float b, float c, float d)
+{
+    denominator = a*d - c*b;
+    return denominator;
+}
+
+//calcuate value of x1
+void cal_x1(float b, float d, float m, float n, float den)
+{
+    float x1;
+    x1 = (m*d - b*n)/den;
+    printf("Value of x1 = %.3f\n",x1);
+}
+
+//calculate value of x2
+void cal_x2(float a, float c, float m, float n, float den)
+{
+    float x2;
+    x2 = (n*a - m*c)/den;
+    printf("Value of x2 = %.3f\n",x2);
+}
+
+int main()
+{
+    float a,b,c,d,m,n;
+    printf("Enter the value of a b c d m and n : ");
+    scanf("%f%f%f%f%f%f",&a,&b,&c,&d,&m,&n);
+    denominator = cal_denominator(a,b,c,d);
+    if(denominator == 0)
+    {
+        printf("Denominator = %.1f*%.1f - %.1f*%.1f = %.1f"
+                "\ncan't be of value zero\n",a,d,c,b,denominator);
+    }
+    else
+    {
+        cal_x1(b,d,m,n,denominator);
+        cal_x2(a,c,m,n,denominator);
+    }
+    return 0;
+}

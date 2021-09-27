@@ -1,0 +1,28 @@
+//read two floating point numbers and assign to sum of integer data type
+
+#include<stdio.h>
+int sum();
+int main()
+{
+    float a,b;
+    int add;
+    add = sum();
+    printf("\nSum is main function = %d",add);
+    return 0;
+}
+
+int sum()
+{
+    float add,x,y;
+    printf("Enter the value of a and b in floating values : ");
+    scanf("%f%f",&x,&y);
+    add = x + y;
+    printf("Sum in sum function = %f",add);
+    return add;
+}
+
+
+
+
+
+
