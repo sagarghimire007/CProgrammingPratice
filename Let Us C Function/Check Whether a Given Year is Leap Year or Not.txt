@@ -1,0 +1,55 @@
+/*
+Leap Year : year evenly divisible by 4
+Years that are divisible by 100 (century years such as 1900 or 2000) cannot be leap years unless they are also divisible by 400.
+*/
+#include <stdio.h>
+
+int checkLeapYear(int leapYear);
+void checkLeapAndOutputResultInConsole(int leapYear);
+
+int main()
+{
+    int leapYear;
+    printf("Enter the year and check whether its leap year or not : ");
+    scanf("%d", &leapYear);
+    //checkLeapYear(leapYear);
+    checkLeapAndOutputResultInConsole(leapYear);
+    return 0;
+}
+
+int checkLeapYear(int leapYear)
+{
+    if(leapYear % 400 == 0  && leapYear % 100 == 0)
+    {
+        return 1;
+    }
+    else if(checkEvenlyDivisibleOrNot(leapYear)) // given year is divisible but check whether its evenly divisible or not
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+void checkLeapAndOutputResultInConsole(int leapYear)
+{
+    if(checkLeapYear(leapYear))
+    {
+        printf("%d is Leap Year\n", leapYear);
+    }
+    else
+    {
+        printf("%d is not Leap Year\n", leapYear);
+    }
+}
+
+int checkEvenlyDivisibleOrNot(int leapYear)
+{
+    return ((leapYear / 4) % 2 == 0); // check given year evenly divisible or not
+}
+
+
+
+

@@ -1,0 +1,53 @@
+/*
+given year into roman equivalent
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    int year;
+    printf("Enter a year : ");
+    scanf("%d", &year);
+    romanYear(year);
+    return 0;
+}
+
+void romanYear(int year)
+{
+    if(year >= 1000)
+    {
+        printf("m");
+        romanYear(year - 1000);
+    }
+    else if(year >= 500)
+    {
+        printf("d");
+        romanYear(year - 500);
+    }
+    else if(year >= 100)
+    {
+        printf("c");
+        romanYear(year - 100);
+    }
+    else if(year >= 50)
+    {
+        printf("l");
+        romanYear(year - 50);
+    }
+    else if(year >= 10)
+    {
+        printf("x");
+        romanYear(year - 10);
+    }
+    else if(year >= 5)
+    {
+        printf("v");
+        romanYear(year - 5);
+    }
+    else if(year >= 1)
+    {
+        printf("i");
+        romanYear(year - 1);
+    }
+}

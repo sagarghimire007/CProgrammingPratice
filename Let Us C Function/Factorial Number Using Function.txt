@@ -1,0 +1,39 @@
+/*
+factorial of a given  number :
+product of that number with a whole number till 1
+whole number : are set of numbers including all positive integers and 0, does not include fractions,decimals and negative numbers
+*/
+
+#include <stdio.h>
+
+void calculateFactorialAndOutputOnConsole(int n);
+int calculateFactorial(int n);
+
+int main()
+{
+    int n, fact;
+    printf("Enter the number to have its factorial : ");
+    scanf("%d",&n);
+    fact = calculateFactorial(n);
+    // calculateFactorialAndOutputOnConsole(n);
+    printf("Factorial of %d is %d\n", n, fact);
+    return 0;
+}
+
+int calculateFactorial(int n)
+{
+    int fact = 1;
+    for(int i = 1; i <= n; i++)
+    {
+       fact = fact * i;
+    }
+    return fact;
+}
+
+void calculateFactorialAndOutputOnConsole(int n)
+{
+    int fact = calculateFactorial(n);
+    printf("Factorial of %d is %d\n", n, fact);;
+}
+
+
